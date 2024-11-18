@@ -1,4 +1,4 @@
-Here we provide a tutorial on how to implement the closed-form TSB solutions, driven by the THeatBM and THeatVE reference dynamics. That is, we corroborate the thereotical results in __Theorems 6 & 7__ in the paper.
+Here we provide a tutorial on how to implement the closed-form TSB solutions, driven by the THeatBM and THeatVE reference dynamics. That is, we corroborate the theoretical results in __Theorems 6 & 7__ in the paper.
 
 
 
