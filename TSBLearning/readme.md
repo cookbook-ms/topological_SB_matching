@@ -1,5 +1,12 @@
 We will release the code upon publication. 
 
+- [Brain signals matching (newly added)](#brain-signals-matching-newly-added)
+  - [Datasets](#datasets)
+  - [Results](#results)
+  - [Ablation study on the normalizations of the graph Laplacian](#ablation-study-on-the-normalizations-of-the-graph-laplacian)
+- [Computational Complexity](#computational-complexity)
+- [References](#references)
+
 
 ## Brain signals matching (newly added)
 
