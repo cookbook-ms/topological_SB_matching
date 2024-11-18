@@ -8,8 +8,8 @@ We considered another application of the TSBM on a dataset of fMRI signals suppo
 
 To utilize the graph structure, we consider the HCP recommended brain atlas [2] and we can build a brain network which describes physical connection patterns between brain regions. Consider a graph $G=(V,A)$ with the node set $V$ and the adjacency matrix $A$. The brain regions encoded in the nodes are macroscale parcels of the brain, which are obtained based on a commonly used HCP's multimodal parcellation [2]. This leads to 180 cortical parcels for each hemisphere, resulting in a total of 360 regions (nodes) in the brain network, as shown below on the left. 
 
-<img src="assets/brain_graph.png" alt="drawing" width="200"/>
-<img src="assets/groundtruth_energy.png" alt="drawing" width="400"/>
+<img src="assets/brain_graph.png" alt="drawing" width="150"/>
+<img src="assets/groundtruth_energy.png" alt="drawing" width="300"/>
 
 
 The weights in the adjacency matrix measure the strength of the axonal connections between two regions. This strength is built proportional to the inverse of the square distance between the regions [3]. 
