@@ -37,7 +37,7 @@ We measure the performance of SB and TSB based matching and report the 1- and (s
 | TSB-VP     | $7.67 \pm 0.11$ | $5.64 \pm 0.09$ |
 
 
-**Illustrations**: Below we show the energies of the TSB-VP (Top) and SB-VP (Bottom) based sampled signals. 
+**Illustrations**: Below we show the energies of the TSB-VE (Top) and SB-VE (Bottom) based sampled signals. 
 
 <img src="assets/predicted_energy_details_.png" alt="drawing" width="1000"/>
 <img src="assets/predicted_energy_details_ve_.png" alt="drawing" width="1000"/>
