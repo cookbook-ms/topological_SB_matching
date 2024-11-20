@@ -26,11 +26,11 @@ In our original computations, we applied Padé approximations for matrix exponen
 - compute the matrix exponential itself: ```expm(A)```
 
 | Dimension | Chebyshev | Padé |
-|-----------|-------|-------|-------|
-| 1000      | 0.28  | 0.36  | 0.08  |
-| 2000      | 1.55 | 1.77  | 0.62  |
-| 5000      | 12.80 | 11.96 | 6.09  |
-| 10000     | 76.92 | 73.91 | 29.39 |
+|-----------|-------|-------|
+| 1000      | 0.28  | 0.36  |
+| 2000      | 1.55 | 1.77  |
+| 5000      | 12.80 | 11.96 |
+| 10000     | 76.92 | 73.91 |
 
 
 - compute the matrix exponential-vector product: ```expm_multiply(A, v)```
