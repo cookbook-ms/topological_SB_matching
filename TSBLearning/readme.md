@@ -76,9 +76,11 @@ First, considering normalized indicator function on the graph topology: $\mu_1=1
 We here showcase the results based on TSB-BM and SB-BM models: (left: groundtruth, right: predicted)
 
 **TSB-BM** 
+
 ![single_cell](assets/tsb.png)
 
 **SB-BM** 
+
 ![alt text](assets/sb.png)
 
 
