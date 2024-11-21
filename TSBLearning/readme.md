@@ -69,14 +69,16 @@ As suggested by reviewer 1, we here provide some results on the single-cell data
 We want to thank and acknowledge the reviewer for the suggestion on how to apply our framework to this kind of scenario where we have observations (data points) $x_1,\dots,x_k$ over $k$ timepoints and these data points (cells here) are moving. 
 Reviewer 1 suggested to consider a graph topology using all the data points $X:=\cup_i x_i$, and then consider the transport of $x_1$ to $x_2$.
 This transport can be done using our framework as follows: 
-first, considering normalized indicator function on the graph topology: $\mu_1 = \mathbb{1}_{x_1}/\sum_{j} \mathbb{1}_{x_1}(v_j)$ where $v_j$ is the node supporting the data points in $x_1$; similarly, we can define an indicator function for $x_2$; and then, we can tranport $\mu_1$ to $\mu_2 = \mathbb{1}_{x_2}/\sum_{j} \mathbb{1}_{x_2}(v_j)$ using the TSB framework with them as the boundary distributions.
+
+First, considering normalized indicator function on the graph topology: $\mu_1 = \mathbb{1}_{x_1}/\sum_{j} \mathbb{1}_{x_1}(v_j)$ where $v_j$ is the node supporting the data points in $x_1$; similarly, we can define an indicator function for $x_2$; and then, we can tranport $\mu_1$ to $\mu_2 = \mathbb{1}_{x_2}/\sum_{j} \mathbb{1}_{x_2}(v_j)$ using the TSB framework with them as the boundary distributions.
 
 ### Results 
-We here showcase the results based on TSB-BM and SB-BM models:
+We here showcase the results based on TSB-BM and SB-BM models: (left: groundtruth, right: predicted)
 
-**TSB-BM**
+**TSB-BM** 
 ![single_cell](assets/tsb.png)
-**SB-BM**
+
+**SB-BM** 
 ![alt text](assets/sb.png)
 
 
