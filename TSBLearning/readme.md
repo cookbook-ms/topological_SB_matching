@@ -95,7 +95,7 @@ Below, we report the Wasserstein distances between the predicted and the ground 
 | TSB-VE | 0.14 $\pm$ 0.02 | 0.27 $\pm$ 0.04   |
  |TSB-VP | 0.14 $\pm$ 0.01 | 0.22 $\pm$ 0.03 |
 
-Moreover, we also evaluate the predictions at the intermediate timepoints based on our predicted labels. Note that we used the data observations across the whole timespan to construct the graph. 
+Moreover, we also evaluate the predictions at the intermediate timepoints based on our predicted labels. Note that _we used the data observations across the whole timespan to construct the graph_. 
 | Timepoints | $W_1$, TSB-BM | $W_2$, TSB-BM  | $W_1$, BM  | $W_2$, BM   |
 |------------|---------------|---------------|---------------|---------------|
 | 2          | 0.03 ± 0.00   | 0.09 ± 0.00   | 0.52 ± 0.01   | 0.59 ± 0.01   |
@@ -106,10 +106,10 @@ Here, we measure the accuracy of the predicted data points labels at the four ti
 | Method   | $t_2$   | $t_3$  | $t_4$   | $t_5$   |
 |----------|---------|---------|---------|---------|
 | SB-BM    | 0.28  | 0.23  | 0.26  | 0.24  |
-| SB-BM$\star$  | 0.32  | 0.26  | 0.35  | 1.00  |
+| SB-BM$\star$  | 0.24  | 0.20  | 0.26  | 1.00  |
 | TSB-BM   | 0.80  | 0.42  | 0.45  | 0.70  |
 
-In a typical result by a TSB-model, the accuracy at the final timepoint can be high as close to 0.7. As for TSB-models, we made use of the graph constructed based on the whole set of the observations. Thus, we also perform training using the full set of observations for SB-BM, denoted by SB-BM$\star$, the accuracy at the final timepoint can reach 1.00. However, the intermediate predictions remain poor. This indicates the importance of the graph structure in the TSB-models and they better capture the underlying dynamics and predict the intermediate states.
+In a typical result by a TSB-model, the accuracy at the final timepoint can be high as close to 0.7. As for TSB-models, we made use of the graph constructed based on the whole set of the observations. Thus, we also perform leave-one-out training using the full set of observations for SB-BM, denoted by SB-BM$\star$, the accuracy at the final timepoint can reach 1.00. However, the intermediate predictions remain poor. This indicates the importance of the graph structure in the TSB-models and they better capture the underlying dynamics and predict the intermediate states.
 
 
 ### Details
