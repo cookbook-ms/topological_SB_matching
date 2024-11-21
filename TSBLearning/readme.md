@@ -102,6 +102,14 @@ Moreover, we also evaluate the predictions at the intermediate timepoints based 
 | 3          | 0.09 ± 0.00   | 0.22 ± 0.01   | 0.12 ± 0.00   | 0.21 ± 0.00   |
 | 4          | 0.08 ± 0.00   | 0.16 ± 0.01   | 0.19 ± 0.00   | 0.34 ± 0.00   |
 
+Here, we measure the accuracy of the predicted data points labels at the four timepoints given the initial one. This also gives a measure of the predictions. 
+| Method   | $t_2$   | $t_3$  | $t_4$   | $t_5$   |
+|----------|---------|---------|---------|---------|
+| SB-BM    | 0.28  | 0.23  | 0.26  | 0.24  |
+| SB-BM$\star$  | 0.32  | 0.26  | 0.35  | 1.00  |
+| TSB-BM   | 0.80  | 0.42  | 0.45  | 0.70  |
+
+In a typical result by a TSB-model, the accuracy at the final timepoint can be high as close to 0.7. As for TSB-models, we made use of the graph constructed based on the whole set of the observations. Thus, we also perform training using the full set of observations for SB-BM, denoted by SB-BM$\star$, the accuracy at the final timepoint can reach 1.00. However, the intermediate predictions remain poor. This indicates the importance of the graph structure in the TSB-models and they better capture the underlying dynamics and predict the intermediate states.
 
 
 ### Details
@@ -116,13 +124,7 @@ After training the TSB models, using the final sample $y$ obtained from the lear
 The disjointed indices in $S_t$ provide essentially a labeling of the whole observations for the five timepoints. 
 In our experiments, we found that using adjacency matrix $A$ as the convolution operator in the reference dynamics performs better. 
 
-Here, we measure the hit rates of the predicted data points labels at the four timepoints given the initial one. This also gives a measure of the predictions. 
-| Method   | $t_2$   | $t_3$  | $t_4$   | $t_5$   |
-|----------|---------|---------|---------|---------|
-| SB-BM    | 0.2821  | 0.2332  | 0.2572  | 0.2353  |
-| TSB-BM   | 0.7977  | 0.4203  | 0.4529  | 0.6981  |
 
-In a typical result by a TSB-model, the hit rate at the final timepoint can be high as close to 0.7.
 
 ## Computational Complexity
 Here we show the training time and memory comparisons for TSB and SB models using the different-sized Swiss roll graphs. 
