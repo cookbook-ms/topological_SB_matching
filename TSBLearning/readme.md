@@ -84,7 +84,7 @@ Below, we report the Wasserstein distances between the predicted and the ground 
 
 | Method | $W_1$ | $W_2$ |
 |--------|-----|----|
-| VB-BM  | 0.33 $\pm$ 0.01 | 0.40 $\pm$ 0.01   |
+| SB-BM  | 0.33 $\pm$ 0.01 | 0.40 $\pm$ 0.01   |
 | SB-VE  | 0.33 $\pm$ 0.01 | 0.39 $\pm$ 0.01   |
 | SB-VP  | 0.33 $\pm$ 0.01 | 0.40 $\pm$ 0.00   |
 | TSB-BM | 0.14 $\pm$ 0.03 | 0.28 $\pm$ 0.05   |
@@ -113,7 +113,7 @@ The disjointed indices in $S_t$ provide essentially a labeling of the whole obse
 In our experiments, we found that using adjacency matrix $A$ as the convolution operator in the reference dynamics performs better. 
 
 Here, we measure the hit rates of the predicted data points labels at the four timepoints given the initial one. This also gives a measure of the predictions. 
-| Method   | $t_1$   | $t_1$  | $t_1$   | $t_1$   |
+| Method   | $t_2$   | $t_3$  | $t_4$   | $t_5$   |
 |----------|---------|---------|---------|---------|
 | SB-BM    | 0.2821  | 0.2332  | 0.2572  | 0.2353  |
 | TSB-BM   | 0.7977  | 0.4203  | 0.4529  | 0.6981  |
