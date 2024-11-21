@@ -95,7 +95,7 @@ Below, we report the Wasserstein distances between the predicted and the ground 
 | TSB-VE | 0.14 $\pm$ 0.02 | 0.27 $\pm$ 0.04   |
  |TSB-VP | 0.14 $\pm$ 0.01 | 0.22 $\pm$ 0.03 |
 
-Moreover, we also evaluate the predictions at the intermediate timepoints based on our predicted labels, despite that we did not incorporate the intermediate observations in the training. 
+Moreover, we also evaluate the predictions at the intermediate timepoints based on our predicted labels. Note that we used the data observations across the whole timespan to construct the graph. 
 | Timepoints | $W_1$, TSB-BM | $W_2$, TSB-BM  | $W_1$, BM  | $W_2$, BM   |
 |------------|---------------|---------------|---------------|---------------|
 | 2          | 0.03 ± 0.00   | 0.09 ± 0.00   | 0.52 ± 0.01   | 0.59 ± 0.01   |
