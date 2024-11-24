@@ -9,6 +9,7 @@ We will release the code upon publication.
   - [Results](#results-1)
   - [Details](#details)
 - [Computational Complexity](#computational-complexity)
+  - [Complexity comparison across different graph sizes](#complexity-comparison-across-different-graph-sizes)
   - [Complexity comparison across different datasets](#complexity-comparison-across-different-datasets)
 - [References](#references)
 
@@ -42,7 +43,7 @@ We measure the performance of SB and TSB based matching and report the 1- and (s
 | TSB-VP     | $7.67 \pm 0.11$ | $5.64 \pm 0.09$ |
 
 
-**Illustrations**: Below we show the energies of the TSB-VE (Top) and SB-VE (Bottom) based sampled signals. 
+**Illustrations**: Below we show the energies of the TSB-VE (Top) and SB-VE (Bottom) based sampled signals. The former is able to transport the signals to the final state where the signal has lower energy across the graph, whereas the latter fails to do so and remains very close to the initial state.  
 
 <img src="assets/predicted_energy_details_.png" alt="drawing" width="1000"/>
 <img src="assets/predicted_energy_details_ve_.png" alt="drawing" width="1000"/>
@@ -74,7 +75,7 @@ This transport can be done using our framework as follows:
 First, considering normalized indicator function on the graph topology: $\mu_1=1_{x_1}/\sum_{j}1_{x_1}(v_j)$ where $v_j$ is the node supporting the data points in $x_1$; similarly, we can define an indicator function for $x_2$, and then, we can tranport $\mu_1$ to $\mu_2=1_{x_2}/\sum_{j}1_{x_2}(v_j)$ using the TSB framework with them as the boundary distributions.
 
 ### Results 
-We here showcase the results based on TSB-BM and SB-BM models: (left: groundtruth, right: predicted)
+We here showcase the results based on TSB-BM and SB-BM models: (left: groundtruth, right: predicted). We see that the former is able to capture the underlying dynamics and predict the the final and intermediate states well, whereas the latter fails to do so where the trajectory is very noisy especially the intermediate ones. 
 
 **TSB-BM** 
 
@@ -128,6 +129,7 @@ In our experiments, we found that using adjacency matrix $A$ as the convolution 
 
 
 ## Computational Complexity
+### Complexity comparison across different graph sizes
 Here we show the training time and memory comparisons for TSB and SB models using the different-sized Swiss roll graphs. 
 
 ![complexity](assets/time_memory_comparison.png)
@@ -149,13 +151,13 @@ Here we show the training time and memory comparisons for TSB and SB models usin
 
 ### Complexity comparison across different datasets
 
-| Dataset       | Memory (MiB) - TSB-BM | Memory (MiB) - SB-BM | Training Time (s) - TSB-BM | Training Time (s) - SB-BM |
-|---------------|------------------------|-----------------------|----------------------------|---------------------------|
-| Seismic       | 516                    | 512                   | 50.17                      | 51.48                     |
-| Traffic       | 510                    | 504                   | 52.25                      | 50.62                     |
-| Ocean         | 5976                   | 5892                  | 102.67                     | 106.68                    |
-| Brain         | 486                    | 468                   | 49.62                      | 48.97                     |
-| Single-cell   | 1812                   | 1678                  | 60.14                      | 59.50                     |
+| Dataset       | Memory (MiB) - TSB-BM | Memory (MiB) - SB-BM | Memory Increase (%) | Training Time (s) - TSB-BM | Training Time (s) - SB-BM | Training Time Increase (%) |
+|---------------|------------------------|-----------------------|----------------------|----------------------------|---------------------------|----------------------------|
+| Seismic       | 516                    | 512                   | 0.78%               | 50.17                      | 51.48                     | -2.54%                    |
+| Traffic       | 510                    | 504                   | 1.19%               | 52.25                      | 50.62                     | 3.22%                     |
+| Ocean         | 5976                   | 5892                  | 1.43%               | 102.67                     | 106.68                    | -3.76%                    |
+| Brain         | 486                    | 468                   | 3.85%               | 49.62                      | 48.97                     | 1.33%                     |
+| Single-cell   | 4446                   | 4294                  | 3.54%               | 94.30                      | 92.54                     | 1.90%                     |
 
 
 ## References
