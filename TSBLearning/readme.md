@@ -9,6 +9,7 @@ We will release the code upon publication.
   - [Results](#results-1)
   - [Details](#details)
 - [Computational Complexity](#computational-complexity)
+  - [Complexity comparison across different datasets](#complexity-comparison-across-different-datasets)
 - [References](#references)
 
 
@@ -145,6 +146,16 @@ Here we show the training time and memory comparisons for TSB and SB models usin
 | 20,000           | 109.96         | 135.63          | 15.30%        | 4676               | 6756                | 44.48%          |
 | 20,000, sparse   | 109.38         | 112.23          | 2.61%         | 4678               | 5140                | 9.88%           |
 | 40,000, sparse   | 204.42         | 229.29          | 12.17%        | 8928               | 9734                | 9.03%           |
+
+### Complexity comparison across different datasets
+
+| Dataset       | Memory (MiB) - TSB-BM | Memory (MiB) - SB-BM | Training Time (s) - TSB-BM | Training Time (s) - SB-BM |
+|---------------|------------------------|-----------------------|----------------------------|---------------------------|
+| Seismic       | 516                    | 512                   | 50.17                      | 51.48                     |
+| Traffic       | 510                    | 504                   | 52.25                      | 50.62                     |
+| Ocean         | 5976                   | 5892                  | 102.67                     | 106.68                    |
+| Brain         | 486                    | 468                   | 49.62                      | 48.97                     |
+| Single-cell   | 1812                   | 1678                  | 60.14                      | 59.50                     |
 
 
 ## References
