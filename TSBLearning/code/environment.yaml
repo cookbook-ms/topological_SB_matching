@@ -1,0 +1,21 @@
+
+name: tsbm
+channels:
+  - anaconda
+  - pytorch
+  - conda-forge
+  - defaults
+dependencies:
+  - numpy
+  - scipy
+  - termcolor
+  - ipdb
+  - pytorch==2.0.1  
+  - tqdm
+  - scikit-learn
+  - pandas
+  - matplotlib
+  - tensorboard
+  - geomloss-0.2.6
+  - torch-ema
+  - torchcfm # for single-cell data

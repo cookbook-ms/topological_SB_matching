@@ -5,3 +5,5 @@ __pycache__/
 # IPython checkpoints
 .ipynb_checkpoints/
 .DS_Store
+
+TSBLearning/code/datasets/single_cell/*.npy
