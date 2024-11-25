@@ -4,3 +4,4 @@ __pycache__/
 
 # IPython checkpoints
 .ipynb_checkpoints/
+.DS_Store
