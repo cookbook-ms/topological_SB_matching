@@ -1,13 +1,15 @@
-We will release the code upon publication. 
 
 - [Brain signals matching (newly added)](#brain-signals-matching-newly-added)
   - [Datasets](#datasets)
   - [Results](#results)
   - [Ablation study on the normalizations of the graph Laplacian](#ablation-study-on-the-normalizations-of-the-graph-laplacian)
 - [Single-cell data (newly added)](#single-cell-data-newly-added)
+  - [Datasets](#datasets-1)
+  - [Details](#details)
   - [How to apply our method to single-cell data?](#how-to-apply-our-method-to-single-cell-data)
   - [Results](#results-1)
-  - [Details](#details)
+- [Ocean flows](#ocean-flows)
+  - [Datasets](#datasets-2)
 - [Computational Complexity](#computational-complexity)
   - [Complexity comparison across different graph sizes](#complexity-comparison-across-different-graph-sizes)
   - [Complexity comparison across different datasets](#complexity-comparison-across-different-datasets)
@@ -67,6 +69,22 @@ Specifically, we consider the random walk (RW) and the combinatorial (comb) norm
 
 As suggested by reviewer 1, we here provide some results on the single-cell data. 
 
+### Datasets
+The dataset is preprocessed by [here](https://data.mendeley.com/datasets/hhny5ff7yj/1) [4, 7]. To run this experiment, you will need the `ebdata_v3.h5ad` object. 
+
+### Details
+The dataset here is single-cell embryoid body data from [here](https://data.mendeley.com/datasets/hhny5ff7yj/1) [4, 7], which describes the differentiation of human embryonic stem cells grown as embryoid bodies into diverse cell lineages over a period of 27 days. 
+These cell data are collected at 5 timepoints (day 0-3, day 6-9, day 12-15, day 18-21, day 24-27), resulting in total 18,203 observations.
+We followed the preprocessing steps provided by [TorchCFM: a Conditional Flow Marching library](https://github.com/atong01/conditional-flow-matching) [5, 6]. 
+Followed by this, we consider the 2-dim [PHATE](https://www.nature.com/articles/s41587-019-0336-3) [7] embedding for the data. 
+This leads to the data coordinates of dimension $18,203 \times 2$.
+From the preprocessing, we can build a sparse kNN graph [4, 7] over the whole observed data. That is, we have an adjacency matrix $A$ of dimension $18,203 \times 18,203$.
+In our experiment, we aim to transport the observed data from day 0-3 to day 24-27. Thus, we build the two boundary distributions based on the normalized indicator functions of the data points observed at these two timepoints.
+After training the TSB models, using the final sample $y$ obtained from the learned forward transport conditioned on the initial distribution, we then obtain the predictions of the coordinates at the five timepoints based on the sorting (from large to small) of $y$ as follows. Given the indices after sorting, $\rm{idx} = {\rm{arg.sort}}(y)$, they can be disjointed as $\rm{idx}= S_1\cup S_2 \cup \dots \cup S_5$ with $|S_t|=n_t$ the number of observations at timepoint $t$ for $t=1,\dots,5$. We then have the prediction indicators for data points at timepoint $t$ given by $S_t$. 
+The disjointed indices in $S_t$ provide essentially a labeling of the whole observations for the five timepoints. 
+In our experiments, we found that using adjacency matrix $A$ as the convolution operator in the reference dynamics performs better. 
+
+
 ### How to apply our method to single-cell data?
 We want to thank and acknowledge the reviewer for the suggestion on how to apply our framework to this kind of scenario where we have observations (data points) $x_1,\dots,x_k$ over $k$ timepoints and these data points (cells here) are moving. 
 Reviewer 1 suggested to consider a graph topology using all the data points $X:=\cup_i x_i$, and then consider the transport of $x_1$ to $x_2$.
@@ -114,19 +132,10 @@ Here, we measure the accuracy of the predicted data points labels at the four ti
 In a typical result by a TSB-model, the accuracy at the final timepoint can be high as close to 0.7. As for TSB-models, we made use of the graph constructed based on the whole set of the observations. Thus, we also perform leave-one-out training using the full set of observations for SB-BM, denoted by SB-BM*, the accuracy at the final timepoint can reach 1.00. However, the intermediate predictions remain poor. This indicates the importance of the graph structure in the TSB-models and they better capture the underlying dynamics and predict the intermediate states.
 
 
-### Details
-The dataset here is single-cell embryoid body data from [here](https://data.mendeley.com/datasets/hhny5ff7yj/1) [4, 7], which describes the differentiation of human embryonic stem cells grown as embryoid bodies into diverse cell lineages over a period of 27 days. 
-These cell data are collected at 5 timepoints (day 0-3, day 6-9, day 12-15, day 18-21, day 24-27), resulting in total 18,203 observations.
-We followed the preprocessing steps provided by [TorchCFM: a Conditional Flow Marching library](https://github.com/atong01/conditional-flow-matching) [5, 6]. 
-Followed by this, we consider the 2-dim [PHATE](https://www.nature.com/articles/s41587-019-0336-3) [7] embedding for the data. 
-This leads to the data coordinates of dimension $18,203 \times 2$.
-From the preprocessing, we can build a sparse kNN graph [4, 7] over the whole observed data. That is, we have an adjacency matrix $A$ of dimension $18,203 \times 18,203$.
-In our experiment, we aim to transport the observed data from day 0-3 to day 24-27. Thus, we build the two boundary distributions based on the normalized indicator functions of the data points observed at these two timepoints.
-After training the TSB models, using the final sample $y$ obtained from the learned forward transport conditioned on the initial distribution, we then obtain the predictions of the coordinates at the five timepoints based on the sorting (from large to small) of $y$ as follows. Given the indices after sorting, $\rm{idx} = {\rm{arg.sort}}(y)$, they can be disjointed as $\rm{idx}= S_1\cup S_2 \cup \dots \cup S_5$ with $|S_t|=n_t$ the number of observations at timepoint $t$ for $t=1,\dots,5$. We then have the prediction indicators for data points at timepoint $t$ given by $S_t$. 
-The disjointed indices in $S_t$ provide essentially a labeling of the whole observations for the five timepoints. 
-In our experiments, we found that using adjacency matrix $A$ as the convolution operator in the reference dynamics performs better. 
 
-
+## Ocean flows
+### Datasets
+To run this experiment, you need the `pacific_data.pkl` object. Please download it from [here](https://drive.google.com/file/d/1imAqvVLKGzwuYtz0Cjp-J07UJW5MgaDY/view?usp=sharing).
 
 ## Computational Complexity
 ### Complexity comparison across different graph sizes
