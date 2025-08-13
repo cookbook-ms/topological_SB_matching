@@ -117,7 +117,7 @@ def save_npy_traj(opt, fn, traj, direction=None):
 
 
 def load_ocean_dataset(train_ratio=0.5, n_eigs=100):
-    with open('datasets/ocean_flow/pacific_data.pkl', 'rb') as f:
+    with open('datasets/ocean_flow/pacific_data1.pkl', 'rb') as f:
         laplacian, eigenvectors, eigenvalues, (b1, b2), y = pickle.load(f)
         eigenvectors, eigenvalues = eigenvectors[:,:n_eigs], eigenvalues[:n_eigs]
     with open('datasets/ocean_flow/cochain1.pkl', 'rb') as f:
