@@ -118,7 +118,7 @@ def save_npy_traj(opt, fn, traj, direction=None):
 
 def load_ocean_dataset(train_ratio=0.5, n_eigs=100):
     with open('datasets/ocean_flow/pacific_data.pkl', 'rb') as f:
-        laplacians, eigenvectors, eigenvalues, (b1, b2), y = pickle.load(f)
+        laplacian, eigenvectors, eigenvalues, (b1, b2), y = pickle.load(f)
         eigenvectors, eigenvalues = eigenvectors[:,:n_eigs], eigenvalues[:n_eigs]
     with open('datasets/ocean_flow/cochain1.pkl', 'rb') as f:
         y = pickle.load(f)
@@ -129,12 +129,14 @@ def load_ocean_dataset(train_ratio=0.5, n_eigs=100):
     train_ids, test_ids = random_perm[:num_train], random_perm[num_train:]
     x_train, x_test = x[train_ids], x[test_ids]
     y_train, y_test = y[train_ids], y[test_ids]
-    return (b1, b2), laplacians, (x_train, y_train), (x_test, y_test), (x, y), (eigenvectors, eigenvalues)
+    return (b1, b2), laplacian, (x_train, y_train), (x_test, y_test), (x, y), (eigenvectors, eigenvalues)
 
 def load_earthquake_data():
     with open('datasets/earthquakes/eqs.pkl', 'rb') as f:
         G = pickle.load(f)
         L = pickle.load(f)
+        evals = pickle.load(f)
+        evecs = pickle.load(f)
         gs = pickle.load(f)
         gs = gs[:-1,:]
     return G, L, gs

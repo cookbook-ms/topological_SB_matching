@@ -145,11 +145,11 @@ class SCDataProcessor:
     def __init__(self, problem_name):
         self.problem_name = problem_name
         if self.problem_name in ['ocean']:
-            self.incidence_matrices, self.laplacians, self.eigenpairs, self.data = self._load_data
+            self.incidence_matrices, self.L, self.eigenpairs, self.data = self._load_data
         elif self.problem_name == 'plane':
             self.incidence_matrices, self.laplacians, self.eigenpairs = self._load_data
         self.b1, self.b2 = self.incidence_matrices
-        self.L = self.laplacians[0]
+        # self.L = self.laplacians[0]
         self.L = torch.sparse_coo_tensor(self.L.nonzero(), self.L.data, self.L.shape, dtype=torch.float32)
         self.eigenbasis = self.get_eigen_basis
         self.eigen_vals = self.get_eigen_vals
@@ -157,9 +157,9 @@ class SCDataProcessor:
     @cached_property
     def _load_data(self):
         if self.problem_name in ['ocean']:
-            incidence_matrices, laplacians, _, _, data, eigenpairs = utils.load_ocean_dataset(
+            incidence_matrices, laplacian, _, _, data, eigenpairs = utils.load_ocean_dataset(
                 self.problem_name, n_eigs=50)
-            return incidence_matrices, laplacians, eigenpairs, data 
+            return incidence_matrices, laplacian, eigenpairs, data 
         elif self.problem_name == 'plane':
             incidence_matrices, laplacians, eigenpairs = utils.load_ocean_dataset(
                 data_name=self.problem_name, n_eigs=50)
